@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-100;
+  min-height: 100vh;
+}
+
+input {
+  @apply py-1 px-2 border border-slate-300 bg-slate-50 rounded text-slate-800 focus:border-indigo-500 w-full;
+}
+
+.btn {
+  @apply rounded shadow-md py-1 px-4;
+}
+
+.btn-primary {
+  @apply bg-indigo-400 text-white font-medium;
+}
