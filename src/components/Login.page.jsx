@@ -1,19 +1,37 @@
-import { Link } from "react-router-dom"
+import { useState } from "react"
+import api from "../api"
 
 export const LoginPage = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const handleSubmit = e => {
+    e.preventDefault()
+    api
+      .login({ email, password })
+      .then(res => {
+        console.log("Response: ", res)
+      })
+      .catch(err => {
+        console.log("Error: ", err, err.response)
+        alert("Failed to login: " + err.message)
+      })
+  }
+
   return (
-    <div className="login-container w-full h-screen flex flex-col justify-center items-center p-2 gap-2">
+    <div className="login-container w-full h-screen flex flex-col justify-center items-center p-2 gap-2 mt-16">
       <div className="login p-3 bg-white shadow-lg flex flex-col gap-4 rounded-lg">
         <h1 className="title text-center text-3xl font-bold">Login</h1>
-        <form action="" className="flex flex-col gap-3">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <div className="row">
             <label>
-              Username:
+              Email:
               <input
+                onChange={e => setEmail(e.currentTarget.value)}
+                value={email}
                 className="mt-1"
-                name="username"
+                name="email"
                 type="text"
-                placeholder="Enter your username ..."
+                placeholder="Enter your email ..."
               />
             </label>
           </div>
@@ -22,6 +40,8 @@ export const LoginPage = () => {
             <label>
               Password:
               <input
+                onChange={e => setPassword(e.currentTarget.value)}
+                value={password}
                 className="mt-1"
                 type="password"
                 name="password"
@@ -37,9 +57,9 @@ export const LoginPage = () => {
           </div>
         </form>
       </div>
-      <Link to="/" className="text-blue-600 text-sm">
+      {/* <Link to="/" className="text-blue-600 text-sm">
         Home
-      </Link>
+      </Link> */}
     </div>
   )
 }

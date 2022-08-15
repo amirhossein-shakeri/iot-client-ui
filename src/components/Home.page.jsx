@@ -7,8 +7,10 @@ export const HomePage = () => {
   return (
     <div className="Home h-screen flex flex-col justify-center items-center p-2 gap-2">
       <div className="links bg-white shadow-lg flex flex-col gap-4 rounded-lg p-4">
-        <h1 className="text-2xl text-center font-bold">Welcome!</h1>
-        <Link className={linkClassNames} to="/login">
+        <h1 className="text-2xl text-center text-indigo-400 font-bold">
+          Welcome!
+        </h1>
+        {/* <Link className={linkClassNames} to="/login">
           Login
         </Link>
         <Link className={linkClassNames} to="/signup">
@@ -16,7 +18,7 @@ export const HomePage = () => {
         </Link>
         <Link className={linkClassNames} to="/settings">
           Settings
-        </Link>
+        </Link> */}
       </div>
     </div>
   )

@@ -7,12 +7,13 @@ body {
   min-height: 100vh;
 }
 
-input {
+input,
+select {
   @apply py-1 px-2 border border-slate-300 bg-slate-50 rounded text-slate-800 focus:border-indigo-500 w-full;
 }
 
 .btn {
-  @apply rounded shadow-md py-1 px-4;
+  @apply rounded shadow-md py-1 px-4 text-center;
 }
 
 .btn-primary {
